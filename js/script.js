@@ -37,10 +37,12 @@ alert(randomNumbers);
 
 setTimeout (function(){
 
-   for (var i = 1; i <= 5; i++) {
-       userChoice = prompt(i + '/5: digita un numero')
+    var i = 1;
+   while (userChoices.length < 5) {
+      var userChoice = prompt(i + '/5: digita un numero')
        if (!userChoices.includes(userChoice)) {
         userChoices.push(userChoice);
+        i++;
     }
 }
 
