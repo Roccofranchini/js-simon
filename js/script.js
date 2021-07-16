@@ -58,7 +58,7 @@ setTimeout (function(){
         }
         
         if (randomNumbers.includes(userChoice)) {
-            score = score + 1;
+            score++;
             console.log(score);
     }
 
@@ -66,32 +66,49 @@ setTimeout (function(){
 
 console.log(userChoices)
 
-// grazie ad un for inseriamo i 5 numeri casuali in un UL -- posso fare una funzione
+// grazie ad un for inseriamo i 5 numeri casuali in un UL rosso se sbagliato, verde se giusto)
 
-var listElement = '';
+var randomListElement = '';
 
 for (var i = 0; i < randomNumbers.length; i++) {
 
-    console.log(listElement);
+    console.log(randomListElement);
 
-    listElement += '<li>' + randomNumbers[i] + '</li>';
+    if (userChoices.includes(randomNumbers[i])) {
+        randomElement = '<li class="green">' + randomNumbers[i] + '</li>'
+    
+    } else {
+        randomElement = '<li class="red">' + randomNumbers[i] + '</li>'
+    }
+
+
+    randomListElement += randomElement;
+
 }
 
-display.innerHTML = listElement;
+// grazie ad un for inseriamo i 5 numeri dell'utente in un UL (rosso se sbagliato, verde se giusto)
 
-// grazie ad un for inseriamo i 5 numeri dell'utente in un UL
-
-var urListElement = '';
+var userListElement = '';
 
 for (var i = 0; i < userChoices.length; i++) {
 
-    console.log(urListElement);
+    console.log(userListElement);
 
-    urListElement += '<li>' + userChoices[i] + '</li>';
+    if (randomNumbers.includes(userChoices[i])) {
+        userElement = '<li class="green">' + userChoices[i] + '</li>'
+    
+    } else {
+        userElement = '<li class="red">' + userChoices[i] + '</li>'
+    }
+
+
+
+
+    userListElement += userElement;
 }
 
-display.innerHTML = listElement;
-display2.innerHTML = urListElement;
+display.innerHTML = randomListElement;
+display2.innerHTML = userListElement;
 titleDisplay.innerHTML = 'I numeri estratti sono: ';
 titleDisplay2.innerHTML = 'I tuoi numeri  sono: ';
 scoreDisplay.innerHTML = score;
