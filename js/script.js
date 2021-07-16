@@ -19,6 +19,7 @@ indovinare sono stati individuati. (Bonus: stampare in pagina il risultato, in a
 // creo array con 5 numeri casuali
 
 var randomNumbers = [];
+var userChoices = [];
 
 while (randomNumbers.length < 5) {
     var randomNumber = getRandomNumber(1, 100);
@@ -28,7 +29,24 @@ while (randomNumbers.length < 5) {
     }
 }
 
-console.log(randomNumbers);
+// mostriamo i numeri estratti
+
+alert(randomNumbers);
+
+// impostiamo 30 secondi di timer per chiedere i numeri all'utente
+
+setTimeout (function(){
+
+   for (var i = 1; i <= 5; i++) {
+       userChoice = prompt(i + '/5: digita un numero')
+       if (!userChoices.includes(userChoice)) {
+        userChoices.push(userChoice);
+    }
+}
+
+console.log(userChoices)
+
+}, 3000 );
 
 
 
@@ -49,13 +67,12 @@ console.log(randomNumbers);
 
 
 
-
-
-
-
-
-
-// funzione che genere numeri casuali
+/** 
+ * 
+ * @param {number} min 
+ * @param {*number max 
+ * @returns randomNumber 
+ */
 
 function getRandomNumber(min, max) {
 
